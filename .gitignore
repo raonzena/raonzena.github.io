@@ -1,0 +1,16 @@
+## Window10 OS
+*.DS_Store
+.bundle
+.sass-cache
+node_modules
+package.json
+.ruby-version
+
+## Jekyll stuff
+/_site/
+_site/
+.sass-cache/
+.jekyll-metadata
+.jekyll
+Gemfile
+Gemfile.lock
