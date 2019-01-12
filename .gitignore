@@ -9,6 +9,8 @@ package.json
 ## Jekyll stuff
 /_site/
 _site/
+/_post_old/
+_post_old/
 .sass-cache/
 .jekyll-metadata
 .jekyll
