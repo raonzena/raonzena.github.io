@@ -5,9 +5,9 @@ date:   2019-01-29
 
 ---
 
-# **1. scope**
+# 1. scope
 
-- ES5 version
+## 1.1 ES5 version
   **함수 레벨 스코프(function level scope)**
   함수에 의해서 생기는 변수의 유효범위. 함수 내에서 선언된 변수는 함수 내에서만 유효. 함수 외부에서는 참조 불가.
   ```javascript
@@ -18,7 +18,7 @@ date:   2019-01-29
   console.log(bar)  /* bar is 456 */
   ```
 
-- ES6+ version
+## 1.2 ES6+ version
   **블록 레벨 스코프(block level scope)**
   블록에 의해 생기는 변수의 유효범위. 중괄호({})를 블록으로 간주.
   ```javascript
@@ -31,7 +31,7 @@ date:   2019-01-29
 
 
 
-## 1-1. Hoisting
+# 2. Hoisting
 - ES5에서는 var만 사용하기 때문에 다음과 같은 예제를 살펴보면, 4번째 코드 줄에서 'a is undefined' 메시지가 뜨는 것을 알 수 있다.
 변수 a가 호이스팅되어 5번째줄에서 변수명을 위로 끌어올리고, undefined를 할당했기 때문이다.
 ```javascript
@@ -62,7 +62,7 @@ console.log(a);
 
   
 
-## 1-2. TDZ
+# 3. TDZ
 
 - TDZ(Temporal Dead Zone)은 말 그대로 일시적 사각지대이다. 호이스팅 개념 예제를 들면서 나온 내용이다.
 이전에 정의했던 이름이 같은 변수를 호출 이후에 다시 정의할 때 호출한 시점에서 변수가 선언되어 있지 않은 것으로 나타내지는데 이를 TDZ라고 한다.
@@ -77,14 +77,14 @@ if(true){
 
 
 
-# **2. variable**
+# 4. variable
 
-- ES5 version
-var 사용
+## 4.1 ES5 version
+- var 사용
 
-- ES6+ version
-var 사용 지양 (hoisting, function level scope ...)
-let, const 사용
+## 4.2 ES6+ version
+- var 사용 지양 (hoisting, function level scope ...)
+- let, const 사용
 
   
 
