@@ -45,7 +45,7 @@ date:   2019-01-29
 })();
 ```
 
-ES6+에서는 if, for, while, switch-case문 등 자체가 block scope가 된다.
+- ES6+에서는 if, for, while, switch-case문 등 자체가 block scope가 된다.
 다음 예제를 살펴보면 ES5과 다르게 4번째 코드 줄에서 'a is not defined' 메시지가 뜬다.
 변수 a가 호이스팅되어 5번째줄에서 변수명을 위로 끌어올렸지만, undefined를 할당하지 않았기 때문이다.
 ```javascript
@@ -80,11 +80,11 @@ if(true){
 # **2. variable**
 
 - ES5 version
-  var 사용
+var 사용
 
 - ES6+ version
-  var 사용 지양 (hoisting, function level scope ...)
-  let, const 사용
+var 사용 지양 (hoisting, function level scope ...)
+let, const 사용
 
   
 
