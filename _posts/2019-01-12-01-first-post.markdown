@@ -1,7 +1,13 @@
 ---
+published: true
 layout: post
 title:  "first Post"
 date:   2019-01-12
+author: raonzena 
+category: news
+tags:
+- First
+comments: true
 ---
 
 github 블로그 포스팅 테스트

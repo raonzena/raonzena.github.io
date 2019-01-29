@@ -1,25 +1,80 @@
+### Site info:
 title: raonzena's blog
-description: raonzena's blog
+tagline: raonzena's blog
+author: raonzena
+email: seven1004z@gmail.com
+description: "raonzena's blog" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
+keywords: "Jekyll, theme, Freshman21"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://raonzena.github.io/" # the base hostname & protocol for your site
+locale: en_US
 
-url: https://raonzena.github.io/
-baseurl: ""
-paginate_path: "blog/page:num/"
-permalink: blog/:title/
+### Personal info and site tools info:
+github_username:  raonzena
+disqus_shortname: raonzena
+favicon:     "/images/favicon.ico"
+aboutme: Hi, this is Lijia Yu. I made the Freshman21 theme. Please enjoy it. # these are shown on aboutme-sidebar.
+aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg# your photo.
+google_analytics_key: UA-133453532-1 # put YOUR key here to enable tracking! (blank to disable)
 
+
+### Site setting:
+ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown where ShowContactInfo == True
+default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
+default_locale: "ko" # blog sidebar language set, only include: English (en), Chinese (cn), Japanese (jp), Polish (pl), Korean (kr),  Russian (ru), Turkish (tr), and Indonesian (id).
+
+locales:
+    en:
+      Aboutme: "About Me"
+      Archives: "Archives"
+      Blogroll: "Blogroll"
+      Categories: "Categories"
+      Copyright_Notice: "Copyright Notice"
+      Recent_Posts: "Recent Posts"
+      Tags: "Tags"
+      Previous: "Older"
+      Next: "Newer"
+      PostedInCategories: "Posted in"
+      Taggedwith: "and tagged"
+      PostDate: "on "
+      Google_search: "Site Search"
+      Home: "Home"
+      About: "About"
+      Guestbook: "Guestbook"
+      Subscribe: "Subscribe"
+    kr:
+      Aboutme: "저자 소개"
+      Archives: "모든 게시물"
+      Blogroll: "참조 링크"
+      Categories: "카테고리"
+      Copyright_Notice: "저작권"
+      Recent_Posts: "최근 게시물"
+      Tags: "태그"
+      Previous: "이전 게시물"
+      Next: "다음 게시물"
+      PostedInCategories: "카테고리: "
+      Taggedwith: "태그: "
+      PostDate: "작성일: "
+      Google_search: "게시물 검색"
+      Home: "홈"
+      About: "소개"
+      Guestbook: "방명록"
+      Subscribe: "구독하기"
+
+### your Blogroll info, only name can shown on the page.
+
+Blogroll:
+      - name: hoyuo Blog
+        href: https://hoyuo.github.io/
+        title: hoyuo blog
+
+
+### Build settings
 markdown: kramdown
-highlighter: rouge
-gems: [jekyll-paginate]
+#highlighter: pygments
+kramdown:
+        input: GFM
+        syntax_highlighter: rouge
+plugins: [jekyll-paginate]
 paginate: 5
-
-navigation:
- - title: Home
-   url: /index.html
- - title: About
-   url: /about
- - title: Contact
-   url: /contact
-
-social:
-   github: raonzena
-   email: seven1004z@gmail.com
-
+excerpt_separator: <!-- more -->
