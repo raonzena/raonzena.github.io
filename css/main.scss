@@ -2,12 +2,22 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
+@font-face {
+    font-family: 'sd-misaeng';
+    src: url('/fonts/sdmisaeng.eot');
+    src: url('/fonts/sdmisaeng.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/sdmisaeng.woff2') format('woff2'),
+         url('/fonts/sdmisaeng.woff') format('woff'),
+         url('/fonts/sdmisaeng.ttf') format('truetype'),
+         url('/fonts/sdmisaeng.svg#sd-misaeng') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
-
+}
 
 // Our variables
-$base-font-family: 'Lato', 'Open Sans', Helvetica, Arial, sans-serif !important;
-$base-font-size:   16px;
+$base-font-family: 'sd-misaeng';
+$base-font-size:   24px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6em;
 

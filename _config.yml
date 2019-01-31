@@ -13,15 +13,15 @@ locale: en_US
 github_username:  raonzena
 disqus_shortname: raonzena
 favicon:     "/images/favicon.ico"
-aboutme: Hi, this is Lijia Yu. I made the Freshman21 theme. Please enjoy it. # these are shown on aboutme-sidebar.
-aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg# your photo.
+aboutme: raonzena's IT blog # these are shown on aboutme-sidebar.
+aboutme_photo: "/images/light-bulb.png" # your photo.
 google_analytics_key: UA-133453532-1 # put YOUR key here to enable tracking! (blank to disable)
 
 
 ### Site setting:
 ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown where ShowContactInfo == True
 default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
-default_locale: "ko" # blog sidebar language set, only include: English (en), Chinese (cn), Japanese (jp), Polish (pl), Korean (kr),  Russian (ru), Turkish (tr), and Indonesian (id).
+default_locale: "en" # blog sidebar language set, only include: English (en), Chinese (cn), Japanese (jp), Polish (pl), Korean (kr),  Russian (ru), Turkish (tr), and Indonesian (id).
 
 locales:
     en:
@@ -41,7 +41,6 @@ locales:
       Home: "Home"
       About: "About"
       Guestbook: "Guestbook"
-      Subscribe: "Subscribe"
     kr:
       Aboutme: "저자 소개"
       Archives: "모든 게시물"
@@ -59,7 +58,6 @@ locales:
       Home: "홈"
       About: "소개"
       Guestbook: "방명록"
-      Subscribe: "구독하기"
 
 ### your Blogroll info, only name can shown on the page.
 

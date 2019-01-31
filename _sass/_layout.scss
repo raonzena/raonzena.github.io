@@ -10,6 +10,7 @@
 
 .site-title {
   font-size: 48px;
+  font-weight: bold;
   line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
@@ -113,7 +114,7 @@
 .sidebar-module {
   padding: 15px;
   margin: 0 -15px 15px;
-  font-size: 14px;
+  font-size: 24px;
   h4{
     font-size: $base-font-size;
     font-weight: bold;
@@ -137,7 +138,7 @@
   border-top: 1px solid $grey-color-light;
   margin: $spacing-unit 0; 
   padding: $spacing-unit 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 
