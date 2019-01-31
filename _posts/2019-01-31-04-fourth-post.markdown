@@ -72,8 +72,7 @@ var objectName = {
 1) Dot Notation
 ~~~javascript
 objectName.key // => value
-~~~
-
+~~~  
 2) Bracket Notaion
 ~~~javascript
 objectName['key'] // => value
