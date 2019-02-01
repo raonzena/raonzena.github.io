@@ -1,0 +1,73 @@
+---
+layout: post
+title:  "codestates pre_course 정리 (2)"
+date:   2019-01-31
+
+---
+
+# 1. Iteration #
+## 1-1. for loop ##
+~~~javascript
+// 기본 for문
+for(Initialize; Condition; Increase/decrease Expression){
+   //반복할 코드
+}
+// for...in문
+for(key in obj) {
+
+}
+~~~
+초기화된 변수가 조건문을 충족하는지 확인 후 for문 내부 코드를 돈 후 증감식을 거쳐 다시 조건문을 충족하는지 확인한다.  
+마지막에 증감식을 거쳐 조건문에 충족하지 않으면 for문을 빠져나오게 된다.  
+따라서 변수가 for문 내부에서 반복한 값보다 증감식을 한 번 더 거친 값을 가지게 된다.  
+
+## 1-2. while ##
+~~~javascript
+while(Condition){
+   //반복할 코드
+}
+~~~  
+
+<br/>
+
+# 2.Function #
+## 2-1. 함수표현식 ##
+~~~javascript
+var fun = function(parameter){
+   // 내용
+};
+~~~  
+
+## 2-2. 함수선언식 ##
+~~~javascript
+function fun2(parameter){
+   //내용
+};
+~~~  
+	 
+## **함수표현식과 함수선언식의 차이** ##
+
+함수표현식은 먼저 함수표현식의 객체안에 함수를 담은 후에만 호출할 수 있지만, 함수선언식은 함수 선언 전에 함수를 호출해도 호출이 가능하다.
+
+## 2-3. return ##
+함수의 결과값을 output할 때 사용함  
+~~~javascript
+function func(){
+	output = 'output value';
+	return output;
+}
+console.log(func()) /* output value */
+~~~
+
+## 2-4. 매개변수(parameter) ##
+함수 외부의 변수를 가져다 사용할 때 사용함
+~~~javascript 
+/* 함수의 정의. 괄호 안의 speed, distance를 파라미터(매개변수)라고 함. */
+function timeToGoHome(speed, distance) {  
+   return distance / speed;
+}
+
+/* 함수의 호출. 괄호 안의 10, 50 값을 argument라고 함. */
+timeToGoHome(10, 50);   
+~~~
+
