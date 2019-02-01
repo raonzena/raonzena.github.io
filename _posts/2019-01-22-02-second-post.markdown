@@ -1,8 +1,15 @@
 ---
+published: true
 layout: post
 title:  "Code States, Started"
 date:   2019-01-22
+author: raonzena 
+tags:
+- codestates
+- pre course
+comments: true
 ---
+
 
 대학교를 졸업하기 직전 프로그래밍을 하고 싶어서 국비학원에 다니게 되었다.
 부푼 꿈을 안고 갔던 그 곳에서 나는 다양한 사람들을 만났다.

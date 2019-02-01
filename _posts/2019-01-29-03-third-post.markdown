@@ -1,8 +1,14 @@
 ---
+published: true
 layout: post
 title:  "block level scope와 let, const"
 date:   2019-01-29
-
+author: raonzena 
+tags:
+- javascript
+- ES6+
+- ECMA
+comments: true
 ---
 
 # **1. scope**
