@@ -119,10 +119,9 @@ arr.filter(function(element) {
 var animals = ['pigs', 'goats', 'sheep'];
 
 console.log(animals.push('cows'));
-// expected output: 4
-
+/* expected output: 4 */
 console.log(animals);
-// expected output: Array ["pigs", "goats", "sheep", "cows"]
+/* expected output: Array ["pigs", "goats", "sheep", "cows"] */
 ~~~
 
 #### 2-5-2. arr.pop() ####
@@ -133,10 +132,9 @@ console.log(animals);
 var plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
 
 console.log(plants.pop());
-// expected output: "tomato"
-
+/* expected output: "tomato" */
 console.log(plants);
-// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+/* expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"] */
 ~~~
 
 ### 2-6. slice ###
