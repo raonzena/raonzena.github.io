@@ -4,6 +4,7 @@ layout: post
 title:  "block level scope와 let, const"
 date:   2019-01-29
 author: raonzena 
+category: javascript
 tags:
 - javascript
 - ES6+
