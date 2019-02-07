@@ -114,7 +114,7 @@ arr.filter(function(element) {
 #### 2-5-1. arr.push(newElement) ####
 - arguments: 추가할 element(여러개 가능)
 - return value: 최종 배열의 길이
-- 배열 마지막에 요소를 추가
+- 배열 마지막에 요소를 추가  
 ~~~javascript
 var animals = ['pigs', 'goats', 'sheep'];
 
@@ -127,7 +127,7 @@ console.log(animals);
 
 #### 2-5-2. arr.pop() ####
 - return value: 제거된 element를 반환
-- 배열의 마지막 요소를 제거
+- 배열의 마지막 요소를 제거  
 ~~~javascript
 var plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
 
@@ -143,7 +143,7 @@ console.log(plants);
 - arguments: 처음/마지막 index
 - return value: 새로운 배열 객체 반환
 - index의 범위만큼 element를 추출
-- 배열을 복사(shallow copy)할 때 유용
+- 배열을 복사(shallow copy)할 때 유용  
 ~~~javascript
 var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
 var citrus = fruits.slice(1, 3);
