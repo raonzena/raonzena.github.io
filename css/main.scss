@@ -3,20 +3,16 @@
 ---
 @charset "utf-8";
 @font-face {
-    font-family: 'sd-misaeng';
-    src: url('/fonts/sdmisaeng.eot');
-    src: url('/fonts/sdmisaeng.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/sdmisaeng.woff2') format('woff2'),
-         url('/fonts/sdmisaeng.woff') format('woff'),
-         url('/fonts/sdmisaeng.ttf') format('truetype'),
-         url('/fonts/sdmisaeng.svg#sd-misaeng') format('svg');
+    font-family: 'ya-chae';
+    src: url('/fonts/yaRegular.ttf') format('truetype'),
+         url('/fonts/yaBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
 }
 
 // Our variables
-$base-font-family: 'sd-misaeng';
+$base-font-family: 'ya-chae';
 $base-font-size:   24px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6em;
