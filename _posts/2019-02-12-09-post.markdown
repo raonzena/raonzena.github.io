@@ -1,0 +1,134 @@
+---
+published: true
+layout: post
+title:  "codestates pre_course 정리 (6) - passing variables"
+date:   2019-02-12
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- passing variables
+comments: true
+---
+
+# 1. Primitive Type #
+- Primitive Type은 메모리 상의 값이 그것의 실제 값과 동일함
+- Scalar Type 혹은 Simple Type으로도 불림
+- 다음은 5가지의 원시 타입
+  - null
+  - undefined
+  - number
+  - string
+  - boolean
+
+- 관련 예제 코드
+
+~~~javascript
+var a = 10;
+var b = a;
+a = 20;
+
+console.log(a); // => 20
+console.log(b); // => 10
+~~~
+
+- 이 코드를 순서대로 살펴보면 다음과 같음  
+
+1.
+~~~javascript
+var a = 10;
+~~~
+
+변수|값
+----|----
+a|10
+
+2.
+~~~javascript
+var b = a;
+~~~
+
+변수|값
+----|----
+a|10
+b|10
+
+3.
+~~~javascript
+var a = 20;
+~~~
+
+변수|값
+----|----
+a|20
+b|10
+
+---
+
+# 2. Reference Type #
+- Reference type은 하나의 메모리 주소에 저장이 불가능 하므로, 변수가 들어 있는 주소의 값에 그 해당 변수의 실제 값이 들어 있는 주소가 참조 되어 있음
+- Complex type 또는 Container type으로도 불림
+- 다음은 3가지의 참조 타입
+  - Array
+  - Object
+  - Function
+
+## 2.1. Array ##
+- 관련 예제 코드
+
+~~~javascript
+var a = [1, 2, 3];
+var b = a;
+a[0] = 0;
+
+console.log(a); // [0, 2, 3]
+console.log(b); // [0, 2, 3]
+~~~
+
+- 이 코드를 순서대로 살펴보면 다음과 같음
+
+1.
+~~~javascript
+var a = [1, 2, 3];
+~~~
+
+주소|변수|값
+----|----|----
+0x0001|a|0x0010
+0x0010| |[1, 2, 3]
+
+2.
+~~~javascript
+var b = a;
+~~~
+
+주소|변수|값
+----|----|----
+0x0001|a|0x0010
+0x0002|b|0x0010
+0x0010| |[1, 2, 3]
+
+3.
+~~~javascript
+var a = 20;
+~~~
+
+주소|변수|값
+----|----|----
+0x0001|a|0x0010
+0x0002|b|0x0010
+0x0010| |[0, 2, 3]  
+
+## 2.2. Object ##
+
+~~~javascript
+var obj = { item: '변경되지 않음' };
+console.log("before: ", obj);
+function referenceCopy(ref) {
+    ref = { item: '변경됨' };
+}
+referenceCopy(obj);
+console.log("after: ", obj);
+~~~
+
+## 2.3. Function ##
