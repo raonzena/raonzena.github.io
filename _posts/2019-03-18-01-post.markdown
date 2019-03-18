@@ -1,0 +1,46 @@
+---
+published: true
+layout: post
+title:  "codestates pre_course 정리 (8) - closure"
+date:   2019-03-19
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- closure
+- scope chain
+- currying
+comments: true
+---
+
+# closure #
+- 외부 함수의 변수를 사용할 수 있는 내부함수
+- scope chain으로 표현되기도 함
+- 보통 함수를 리턴하여 사용
+- return하는 내부함수를 closure 함수라고 지칭함
+
+~~~javascript
+function outer() {
+    var outerVar = 'outer fn variable ';
+    console.log(outerVar);
+    function inner() {
+        var innerVar = 'inner fn variable ';
+        console.log(outerVar + innerVar);
+    }
+    return inner;
+}
+
+outer(); 
+/*
+outer fn variable
+inner() { ... }
+ */
+outer()(); // outer fn variable inner fn variable
+var innerFn = outer();
+innerFn(); // outer fn variable inner fn variable
+~~~
+
+## closure가 가지는 세가지 scope chain #
+- 1. closure 자신에 대한 접근(closure function 내에 정의된 변수)
+- 2. 외부 함수의 변수에 대한 접근
+- 3. 전역 변수에 대한 접근
