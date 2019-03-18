@@ -1,0 +1,88 @@
+---
+published: true
+layout: post
+title:  "codestates pre_course 정리 (7) - scope"
+date:   2019-03-14
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- scope
+comments: true
+---
+
+# scope #
+- 변수 접근 규칙에 따른 유효 범위
+
+## Lexical scope & Dynamic scope ##
+- Lexical scope : 유효범위가 코드를 작성할 때 결정됨
+- Dynamic scope : 유효범위가 실행 순서에 의해 결정됨
+
+## Local scope & Global scope ##
+- 하위 scope에서 상위 scope의 변수에 접근 가능
+- Local scope가 Global scope보다 높은 우선순위를 가짐
+
+## function level scope & block level scope ##
+- ES5 version에서는 function level scope를 가짐(var)
+
+~~~javascript
+var name = 'Richard';
+function showName() {
+    var name = 'Jack';
+    console.log(name);
+}
+console.log(name); // Richard
+showName(); // Jack
+console.log(name); // Richard
+~~~
+
+- ES6 version에서는 block level scope를 가짐(let, const)
+
+~~~javascript
+for(let i = 0; i < 5; i++) {
+    console.log(i);
+}
+console.log(i); // Reference Error
+~~~
+
+# window #
+- 전역범위를 대표하는 객체
+- 모든 전역변수는 window객체와 연결(let, const는 X)
+- 선언 없이 초기화된 변수는 전역 변수
+
+~~~javascript
+var name = 'Paul';
+console.log(window.name); // Paul
+console.log(name === window.name); // true
+~~~
+
+# Hoisting #
+- 변수 선언은 범위에 따라 선언과 할당으로 분리됨
+- Javascript 엔진이 내부적으로 변수 선언을 scope의 상단으로 끌어올림(hoist)
+- 함수선언식은 항상 상단으로, 함수표현식은 할당된 변수만 상단으로 Hoisting
+
+~~~javascript
+a = 2;
+var a;
+console.log(a); // 2
+~~~
+
+~~~javascript
+console.log(a); // undefined
+var a = 2;
+~~~
+
+~~~javascript
+/* 함수선언식 */
+show(); // displayed
+function show() {
+    console.log('displayed');
+}
+
+/* 함수표현식 */
+show2(); // TypeError : show2 is not a function
+var show2 = function() {
+    console.log('displayed');
+}
+~~~
+
