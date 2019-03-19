@@ -14,12 +14,14 @@ comments: true
 # this 5 patterns #
 
 1. Global Reference
+- this === window
 
 ~~~javascript
 log(this); // this === window
 ~~~
 
 2. Free Function Invocation
+- this === window
 
 ~~~javascript
 var fun = function() {
@@ -29,6 +31,7 @@ fun(); // this === window
 ~~~
 
 3. .call or .apply Invocation
+- this === call / apply의 첫 번째 인자로 명시된 객체
 
 ~~~javascript
 var fun = function() {
@@ -39,6 +42,7 @@ fun.apply(obj); // this === obj
 ~~~
 
 4. Construction Mode
+- this === 새로 생성된 객체
 
 ~~~javascript
 var fun = function() {
@@ -48,6 +52,7 @@ new fun();
 ~~~
 
 5. Method Invocation
+- this === 부모 object
 
 ~~~javascript
 var obj = {method: fun};
