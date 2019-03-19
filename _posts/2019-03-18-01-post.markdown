@@ -44,3 +44,25 @@ innerFn(); // outer fn variable inner fn variable
 - 1. closure 자신에 대한 접근(closure function 내에 정의된 변수)
 - 2. 외부 함수의 변수에 대한 접근
 - 3. 전역 변수에 대한 접근
+
+## currying ##
+- 클로저가 저장된 파라미터를 사용하므로 템플릿함수를 만들고자 할 때 유용
+
+~~~javascript
+/* without currying */
+function add(x, y) {
+    return x + y;
+}
+
+add(2, 3); // 5
+
+/* with currying */
+function add(x) {
+    return function(y) {
+        return x + y;
+    }
+}
+
+add(2)(3); // 5
+~~~
+

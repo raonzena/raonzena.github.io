@@ -1,0 +1,47 @@
+---
+published: true
+layout: post
+title:  "codestates pre_course 정리 (9) - this"
+date:   2019-03-19
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- this
+comments: true
+---
+
+# this 5 patterns#
+
+1. Global Reference
+~~~javascript
+log(this); // this === window
+~~~
+
+2. Free Function Invocation
+~~~javascript
+var fun = function() {
+    log(this); 
+}
+fun(); // this === window
+~~~
+
+3. .call or .apply Invocation
+~~~javascript
+var fun = function() {
+    log(this);
+}
+fun.call(obj); // this === obj
+fun.apply(obj); // this === obj
+~~~
+
+4. Construction Mode
+~~~javascript
+var obj = {method: fun};
+obj.mtd(); // this === obj
+~~~
+
+5. Method Invocation
+~~~javascript
+
+~~~
