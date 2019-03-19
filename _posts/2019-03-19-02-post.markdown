@@ -11,14 +11,16 @@ tags:
 comments: true
 ---
 
-# this 5 patterns#
+# this 5 patterns #
 
 1. Global Reference
+
 ~~~javascript
 log(this); // this === window
 ~~~
 
 2. Free Function Invocation
+
 ~~~javascript
 var fun = function() {
     log(this); 
@@ -27,6 +29,7 @@ fun(); // this === window
 ~~~
 
 3. .call or .apply Invocation
+
 ~~~javascript
 var fun = function() {
     log(this);
@@ -36,12 +39,17 @@ fun.apply(obj); // this === obj
 ~~~
 
 4. Construction Mode
+
 ~~~javascript
-var obj = {method: fun};
-obj.mtd(); // this === obj
+var fun = function() {
+    log(this);
+}
+new fun();
 ~~~
 
 5. Method Invocation
-~~~javascript
 
+~~~javascript
+var obj = {method: fun};
+obj.mtd(); // this === obj
 ~~~
