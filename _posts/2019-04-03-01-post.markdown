@@ -4,7 +4,7 @@ layout: post
 title:  "LinkedList, Stack, Queue"
 date:   2019-04-03
 author: raonzena 
-category: javascript
+category: Data Structure
 tags:
 - Data Structure
 - LinkedList
