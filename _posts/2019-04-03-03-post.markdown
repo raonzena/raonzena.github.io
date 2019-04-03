@@ -37,7 +37,7 @@ comments: true
 <br/>
 
 # Binary Tree란 #
-- 이진 트리는 위에서 설명했듯이 각 노드가 최대 두 개의 자식 노드를 가지는 트리를 말합니다.
+- 이진 트리는 위에서 설명했듯이 각 노드가 최대 두 개의 자식 노드를 가지는 트리를 말합니다.  
 ![](https://raonzena.github.io/images/tree_2.jpg)
 
 <br/>
