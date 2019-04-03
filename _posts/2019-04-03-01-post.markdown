@@ -20,7 +20,7 @@ LinkedList는 각 노드가 데이터와 포인터를 가지고 연결되어있�
 따라서 특정한 데이터(예를 들어 index값이 7인)를 찾을 때 Head노드(index 0)를 찾아서 순서대로 찾아 들어가야 합니다. 
 
 ## 1.1 데이터 삽입 ##
-![](../images/linkedlist_1.jpg)
+![](https://raonzena.github.io/images/linkedlist_1.jpg)
 LinkedList의 데이터 삽입 프로세스를 위 그림을 참조하여 정리하면 다음과 같습니다.  
 - 1.새로 생성된 B라는 데이터를 LinkedList의 2번째와 3번째 사이에 삽입하려고 합니다.  
 - 2.LinkedList는 내 다음 노드의 정보밖에 모르기 때문에 Head노드에서부터 삽입하려는 위치의 이전노드(A2)를 찾아가야 합니다.  
@@ -28,7 +28,7 @@ LinkedList의 데이터 삽입 프로세스를 위 그림을 참조하여 정리
 - 4.A2의 포인터를 B를 바라보도록 할당합니다. 이제 A2는 B를 자신의 다음 노드로 인식합니다.  
 
 ## 1.2 데이터 삭제 ##
-![](../images/linkedlist_2.jpg)
+![](https://raonzena.github.io/images/linkedlist_2.jpg)
 LinkedList의 데이터 삭제 프로세스를 위 그림을 참조하여 정리하면 다음과 같습니다.  
 - 1.A3이라는 데이터를 LinkedList에서 삭제하려고 합니다.  
 - 2.LinkedList는 내 다음 노드의 정보밖에 모르기 때문에 Head노드에서부터 삭제하려는 위치의 이전노드(A2)를 찾아가야 합니다.  
@@ -45,7 +45,7 @@ Stack에서는 데이터의 삽입을 push라고 하고, 데이터의 삭제는 
 Stack은 보통 DFS(Depth First Search, 깊이우선탐색)에 사용됩니다.
 
 ## 2.1 데이터 삽입 ##
-![](../images/stack.jpg)
+![](https://raonzena.github.io/images/stack.jpg)
 - 1.맨 마지막으로 들어온 데이터의 주소가 0x005인 stack에 0x006주소를 가진 데이터를 삽입(push)하려고 합니다.  
 - 2.현재 마지막 스택으로 0x005주소를 바라보고 있기 때문에 0x006으로 할당합니다. 그러면 마지막 스택으로 0x006을 바라보게 됩니다.  
 
@@ -65,7 +65,7 @@ Queue에서는 데이터의 삽입을 enqueue라고 하고, 데이터의 삭제�
 Queue는 보통 BFS(Breadth First Search, 너비우선탐색)에 사용됩니다.
 
 ## 3.1 데이터 삽입 ##
-![](../images/queue.jpeg)
+![](https://raonzena.github.io/images/queue.jpeg)
 - 1.맨 마지막으로 들어온 데이터의 주소가 0x005인 queue에 주소가 0x006인 데이터를 삽입(enqueue)하려고 합니다.  
 - 2.현재 마지막 스택으로 0x005주소를 바라보고 있기 때문에 0x006으로 할당합니다. 그러면 마지막 스택으로 0x006을 바라보게 됩니다.  
 
