@@ -11,9 +11,19 @@ tags:
 comments: true
 ---
 
-> # Hash Table이란 #
+# Hash Table이란 #
+Hash Table은 key와 value로 데이터를 저장하는 자료구조입니다.
+각각의 객체는 고유한 주소값을 가지며, 이를 가지고 hash function을 통해 값을 테이블에 넣어 저장합니다.  
+![](https://t1.daumcdn.net/cfile/tistory/236B1A4C56B4DE1F12)
+그런데 해시 테이블은 index값이 중복될 수 있습니다.  
+이를 해결하기 위한 방법에 따라 여러 방식이 존재합니다.  
 
-> # Hash Table의 종류 #
+# Hash Table의 다양한 충돌 처리 방식 #
 
-
-> # Hash Table 구현 #
+1) Chaining
+- 모든 bucket을 연결 리스트로 만들어 충돌이 발생하면 해당 bucket의 list에 추가하는 방식이다  
+2) Open-addressing
+- 충돌은 탐사(probing) 방식으로 해결하며 다음과 같은 잘 알려진 probe sequence들이 있다.
+  - Linear probing : 순차적으로 탐색하며 비어있는 버켓을 찾을 때까지 계속 진행된다. 최악의 경우, 탐색을 시작한 위치까지 돌아오게 되어 종료(모든 버켓 순회)하게 된다. 캐쉬의 효율은 높으나 데이터의 클러스터링에 가장 취약한 단점이 있다.
+  - Quadratic probing : 2차 함수를 이용해 탐색할 위치는 찾는다. 캐쉬의 효율과 클러스터링에 강한 능력에서 linear probing과 double hashing probing의 중간 정도 능력을 가진다.
+  - Double hashing probing : 하나의 해쉬 함수에 의해 충돌이 발생하면 2차 해쉬 함수를 이용해 새로운 주소를 할당하는 방법이다. 캐쉬 효율은 3가지 방식 중 가장 좋지 않지만, 클러스터링에 거의 영향을 받지 않는다. 또한 가장 많은 연산량을 요구한다.

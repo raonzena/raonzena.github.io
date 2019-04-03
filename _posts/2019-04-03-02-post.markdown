@@ -38,7 +38,7 @@ Graph의 종류를 다음과 같이 간단하게 알아보겠습니다.
   - 모든 정점(node)를 인접 리스트에 저장 즉, 각각의 정점에 인접한 정점들을 리스트로 표시한 것입니다.
   - 
 - 인접 행렬(Adjacency Matrix)
-  - 인접 행렬은 N*N 크기의 Boolean Matrix로써 matrix[i][j]가 true라면 i -> j로의 간선이 있다는 뜻입니다.
+  - 인접 행렬은 N*N 크기의 Boolean Matrix로써 matrix[i][j]가 true라면 i -> j로의 간선이 있다는 뜻입니다.  
 ![](https://mblogthumb-phinf.pstatic.net/20160604_182/kbs4674_1465039455444jGHTf_PNG/%BA%CE%BA%D01.png?type=w2)
 
 <br/>
@@ -49,6 +49,8 @@ Graph의 종류를 다음과 같이 간단하게 알아보겠습니다.
 |----|:-----:|:------:|
 |접근성|  빠름  |  느림   |
 |메모리|많이소모 | 적게소모 |
+
+<br/>
 
 # Graph 탐색 #
 1) 깊이 우선 탐색(DFS, Depth-First Search)
