@@ -21,7 +21,8 @@ Hash Table은 key와 value로 데이터를 저장하는 자료구조입니다.
 # Hash Table의 다양한 충돌 처리 방식 #
 
 1) Chaining
-- 모든 bucket을 연결 리스트로 만들어 충돌이 발생하면 해당 bucket의 list에 추가하는 방식입니다.  
+- 모든 bucket을 연결 리스트로 만들어 충돌이 발생하면 해당 bucket의 list에 추가하는 방식입니다. 
+ 
 2) Open-addressing
 - 충돌은 탐사(probing) 방식으로 해결하며 다음과 같은 잘 알려진 probe sequence들이 있습니다.
   - Linear probing : 순차적으로 탐색하며 비어있는 버켓을 찾을 때까지 계속 진행됩니다. 최악의 경우, 탐색을 시작한 위치까지 돌아오게 되어 종료(모든 버켓 순회)하게 됩니다. 캐쉬의 효율은 높으나 데이터의 클러스터링에 가장 취약한 단점이 있습니다.
