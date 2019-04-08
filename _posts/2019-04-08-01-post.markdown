@@ -32,7 +32,9 @@ console.dir(student);
 
 위의 __proto__ 부분이 student객체의 프로토타입이다.
 
-# __proto__ #
+---
+
+# \_\_proto\_\_ #
 
 ~~~javascript
 function Person(name) {
@@ -47,5 +49,7 @@ console.dir(person1);
 위 소스는 Person이라는 생성자 함수를 만든 후 person1이라는 객체에 할당한 것이다.  
 console.dir로 객체 내부 구조를 확인해 보면 다음과 같이 Person의 prototype이 person1의 __proto__에 상속이 된 것을 알 수 있다.  
 ![](https://raonzena.github.io/images/proto_2.png) 
+
+---
 
 # constructor #
