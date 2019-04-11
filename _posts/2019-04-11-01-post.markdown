@@ -1,0 +1,154 @@
+---
+published: true
+layout: post
+title:  "N-Queens"
+date:   2019-04-11
+author: raonzena 
+category: prototype
+tags:
+- javascript
+- algorithm
+- n-queens
+- n-rooks
+comments: true
+---
+
+# N-Rooks #
+- N개의 룩(N-Rooks)을 N*N 크기의 체스판에 서로 공격하지 않도록 놓는 방법
+- 체스판의 같은 열과 같은 행에 룩이 두 개 이상 놓여지면 안된다.
+- BackTracking Algorithm을 사용하였다.
+
+## BackTracking Algorithm ? ##
+- BackTracking Algorithm이란 어떤 노드의 유망성을 판별 후, 유망하면 해당 노드의 자식 노드를 검색하고 유망하지 않으면 해당 노드를 빠져나와서 부모 노드의 다른 자식 노드로 이동하는 것을 뜻한다.
+
+## finds one valid solution ##
+- N-Rooks solution 하나를 찾으면 리턴하는 메소드를 구현하였다.
+
+~~~javascript
+window.findNRooksSolution = function (n) {
+  /* method 1 */
+  var solution = [];
+  function backTracking(chessBoard, row) {
+    if(row === n) {
+      if(!chessBoard.hasAnyRooksConflicts()) {
+        solution = chessBoard.rows();
+      }
+      return ;
+    } 
+    for(let col = 0; col < n; col++) {
+      chessBoard.togglePiece(row, col);
+      if(!chessBoard.hasAnyRooksConflicts()) {
+        backTracking(chessBoard, row+1);
+      } else {
+        chessBoard.togglePiece(row, col);
+      }
+    }
+  }
+  backTracking(new this.Board({n:n}), 0);
+  solution = board.rows();
+  return solution;
+
+  /* method 2 */
+  var solution = [];
+  var board = new this.Board({n:n});
+  for(var i = 0; i < n; i++) {
+    board.get(i)[i] = 1;
+  }
+  solution = board.rows();
+  return solution;
+};
+~~~
+
+## finds the number of valid solutions ##
+
+~~~javascript
+window.countNRooksSolutions = function (n) {
+  var solutionCount = 0;
+  function backTracking(chessBoard, row) {
+    if(row === n) {
+      if(!chessBoard.hasAnyRooksConflicts()) {
+        solutionCount++;
+      }
+      return true;
+    }
+    for(let col = 0; col < n; col++) {
+      chessBoard.togglePiece(row, col);
+      if(!chessBoard.hasAnyRooksConflicts()) {
+        backTracking(chessBoard, row+1);
+      }
+      chessBoard.togglePiece(row, col);
+    }
+  }
+  backTracking(new this.Board({n:n}), 0);
+  console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
+  return solutionCount;
+};
+~~~
+
+# N-Queens #
+- N개의 퀸(N-Queens)을 N*N 크기의 체스판에 서로 공격하지 않도록 놓는 방법
+- 체스판의 같은 열과 같은 행, 그리고 같은 대각선 줄에 퀸이 두 개 이상 놓여지면 안된다.
+- BackTracking Algorithm을 사용하였다.
+
+## finds one valid solution ##
+- N-Queens solution 하나를 찾으면 리턴하는 메소드를 구현하였다.
+- n = 2, n = 3 일 때는 빈 체스판을 리턴하도록 예외처리 하였다.
+
+~~~javascript
+window.findNQueensSolution = function (n) {
+  var solution = [];
+  function backTracking(chessBoard, row) {
+    if(row === n) {
+      if(!chessBoard.hasAnyQueensConflicts()) {
+        solution = chessBoard.rows();
+      }
+      return solution;
+    } else {
+      for(let col = 0; col < n; col++) {
+        chessBoard.togglePiece(row, col);
+        if(!chessBoard.hasAnyQueensConflicts()) {
+          var result = backTracking(chessBoard, row+1);
+          if(Array.isArray(result)) {
+            return result;
+          }
+        }
+        chessBoard.togglePiece(row, col);
+      }
+    }
+  }
+  if(n === 2 || n === 3) {
+    var result = new this.Board({n:n});
+    solution = result.rows();
+  } else {
+    backTracking(new this.Board({n:n}), 0);
+  }
+  console.log('Single solution for ' + n + ' queens:', JSON.stringify(solution));
+  return solution;
+};
+~~~
+
+## finds the number of valid solutions ##
+
+~~~javascript
+window.countNQueensSolutions = function (n) {
+  var solutionCount = 0;
+  function backTracking(chessBoard, row) {
+    if(row === n) {
+      if(!chessBoard.hasAnyQueensConflicts()) {
+        solutionCount++;
+      }
+      return true;
+    }
+    for(let col = 0; col < n; col++) {
+      chessBoard.togglePiece(row, col);
+      if(!chessBoard.hasAnyQueenConflictsOn(row, col)) {
+        backTracking(chessBoard, row+1);
+      }
+      chessBoard.togglePiece(row, col);
+    }
+  }
+  backTracking(new this.Board({n:n}), 0);
+  console.log('Number of solutions for ' + n + ' queens:', solutionCount);
+  return solutionCount;
+};
+~~~
