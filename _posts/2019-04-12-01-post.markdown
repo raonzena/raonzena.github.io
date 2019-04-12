@@ -1,0 +1,35 @@
+---
+published: true
+layout: post
+title:  "HTTP Method - get과 post의 차이"
+date:   2019-04-11
+author: raonzena 
+category: prototype
+tags:
+- http
+- get
+- post
+comments: true
+---
+
+# HTTP란 #
+우리가 인터넷을 사용할 때 주소창에 주소를 입력하는데 주소앞에 http:// 와 같은 것이 붙어 있는 것을 볼 수 있다.  
+여기서 HTTP(Hyper Text Transfer Protocol)는 인터넷에서 데이터를 주고받을 수 있는 protocol(통신 규약)을 뜻한다.  
+즉, 웹 서버와 클라이언트(사용자)간의 통신 규약 이다.  
+
+<br/>
+
+# Get vs Post #
+HTTP Method란 클라이언트와 서버 사이에서 이루어지는 요청(Request)과 응답(Response) 데이터를 전송하는 방식이다.  
+HTTP Method에는 여러 종류가 있는데 그 중 대표적으로 GET과 POST에 대한 내용을 살펴볼 것이다.  
+
+## Get ##
+Get방식으로 서버에 요청을 하면 다음과 같이 주소 뒤에 ?name=value 형태로 요청 데이터가 보인다.
+![](https://raonzena.github.io/images/get.png)
+또한 Get은 서버에서 어떤 데이터를 가져와서 보여주거나 하는 용도이지 서버의 값이나 상태를 바꾸지는 않기 때문에 입력 값을 서버로 전송하여 데이터를 변경하지 않고 조회만 할 때 사용한다.  
+ex) 게시글 검색 조회
+
+## Post ##
+Post는 Get방식과는 다르게 주소창에 요청 데이터가 보이지 않는다.  
+또한 Get방식은 주소 뒤에 값을 이어붙이는 것이기 때문에 요청 데이터의 길이 제한이 있지만, Post방식은 Get방식보다 훨씬 더 많은 양의 데이터를 전송할 수 있다.  
+Post는 서버의 값이나 상태를 바꾸기 위해서 사용하기 때문에, 게시글을 작성해서 업로드 하고 수정하는 등에 사용한다. 
