@@ -1,0 +1,81 @@
+---
+published: true
+layout: post
+title:  "react - (1)"
+date:   2019-04-15
+author: raonzena 
+category: prototype
+tags:
+- react
+- props
+- state
+- life cycle
+comments: true
+---
+
+# react란 #
+react는 프론트엔드 라이브러리 중 하나이다. (다른 라이브러리로는 Angular.js, vue.js 등이 있다.)  
+이제까지 HTML, javascript, css등을 통해서 웹사이트를 잘 만들었는데 react와 같은 라이브러리가 왜 필요할까?  
+예를 들어 다음과 같은 코드가 있다고 가정해 보자.
+
+~~~html
+<div id="chats">
+    <ul class="chatBoard">
+        <li class="name">Tom</li>
+        <li class="message">Hi!</li>
+    </ul>
+    <ul class="chatBoard">
+        <li id="name">Kelly</li>
+        <li class="message">Hello</li>
+    </ul>
+    <ul class="chatBoard">
+        <li id="name">Amy</li>
+        <li class="message">Example</li>
+    </ul>
+</div>
+~~~
+
+여기에 자바스크립트로 이벤트를 추가하려면 각 DOM 엘리먼트에 대한 레퍼런스를 찾고, 해당 DOM에 접근해서 작업을 해야한다.  
+하지만 리액트는 훨씬 간편하게 코드를 짤 수 있다.  
+우선 다음과 같이 React, ReactDOM을 불러온다.
+js파일에서 JSX를 사용하려면 꼭 React를 import 해야한다.  
+
+~~~javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ChatListItem extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <ul>
+                <li>{this.props.chat.name}</li>
+                <li>{this.props.chat.message}</li>
+            </ul>
+        );
+    }
+}
+
+const ChatList = (props) => (
+    <Fragment>
+        {props.chats.map(chat =>
+            <ChatListItem chat={chat}/>
+        )}
+    </Fragment>
+);
+
+const App = () => (
+    <ChatList chats={[
+        {name: 'Tom', message: 'Hi!'},
+        {name: 'Kelly', message: 'Hello'},
+        {name: 'Amy', message: 'Example'}
+    ]} />
+);
+
+ReactDOM.render(<App />, document.getElementById="chats");
+
+~~~
+
