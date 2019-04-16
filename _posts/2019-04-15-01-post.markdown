@@ -36,10 +36,76 @@ react는 프론트엔드 라이브러리 중 하나이다. (다른 라이브러�
 ~~~
 
 여기에 자바스크립트로 이벤트를 추가하려면 각 DOM 엘리먼트에 대한 레퍼런스를 찾고, 해당 DOM에 접근해서 작업을 해야한다.  
-하지만 리액트는 훨씬 간편하게 코드를 짤 수 있다.  
-우선 다음과 같이 React, ReactDOM을 불러온다.
-js파일에서 JSX를 사용하려면 꼭 React를 import 해야한다.  
+하지만 리액트는 훨씬 간편하게 코드를 짤 수 있다.
 
+# Component 만들어보기 #
+다음은 ES6문법 및 JSX로 작성된 단순한 React Component이다.
+~~~javascript
+const Chat = () => (
+  <li>Tom</li>
+);
+~~~
+위 함수로 JSX를 반환하는 React Component를 생성했으니 랜더링을 해야한다.
+랜더링은 ReactDOM.render(<Component함수>, <그릴 실제 DOM element>)와 같은 구조로 작성된다.
+다음과 같이 id가 chats인 div에 랜더링한다. 
+~~~javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Chat = () => (
+  <li>Tom</li>
+);
+
+ReactDOM.render(<App />, document.getElementById="chats");
+~~~
+위 코드는 chats안에 <li>Tom</li>이라는 요소를 하나 생성한다.
+이번에는 Chat을 감싸는 ChatBoard를 만들어 보자.
+~~~javascript
+const Chat = () => (
+  <li>Tom</li>
+);
+
+const ChatBoard = () => (
+  <ul>
+    <Chat />
+  </ul>
+);
+
+ReactDOM.render(<SuperWorld />, document.getElementById("root"));
+~~~
+위 코드는 실행하면 chats안에 <ul><li>Tom</li></ul>이라는 요소를 생성한다.  
+여기까지 만든 코드는 li내부에 직접 값을 넣어주었지만 데이터를 받아와서 넣어야 할 때는 어떻게 해야할까?
+다음과 같이 코드를 작성해보자.
+~~~javascript
+const ChatListItem = (props) => (
+    <ul>
+        <li>{props.chat[0].name}</li>
+        <li>{props.chat[0].message}</li>
+    </ul>
+    <ul>
+        <li>{props.chat[1].name}</li>
+        <li>{props.chat[1].message}</li>
+    </ul>
+    <ul>
+        <li>{props.chat[2].name}</li>
+        <li>{props.chat[2].message}</li>
+    </ul>
+
+)
+
+const App = () => (
+    <ChatList chats={[
+        {name: 'Tom', message: 'Hi!'},
+        {name: 'Kelly', message: 'Hello'},
+        {name: 'Amy', message: 'Example'}
+    ]} />
+);
+~~~
+App의 ChatList에서 chats이라는 props를 만들고 그 안에 배열을 집어넣었다. 이것을 ChatListItem함수에서 props로 받아와서 중괄호안에 사용을 했다.  
+여기서 props 는 부모 컴포넌트가 자식 컴포넌트에게 주는 값이다. 자식 컴포넌트에서는 props 를 받아오기만하고, 받아온 props 를 직접 수정 할 수 는 없다.
+
+반면에 state는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있다. 그래서 컴포넌트들의 상호작용 구현할 때 사용한다.
+다음 코드를 보자.
 ~~~javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -47,13 +113,25 @@ import ReactDOM from 'react-dom';
 class ChatListItem extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            done: false
+        }
     }
-
+    onListItemClick() {
+        // 기존의 state를 this.setState을 통해 바꿀 수 있습니다.
+        this.setState({
+        done: !this.state.done
+        });
+    }
     render() {
+        const style = {
+            textDecoration: this.state.done ? 'line-through' : 'none'
+        };
+
         return (
             <ul>
-                <li>{this.props.chat.name}</li>
-                <li>{this.props.chat.message}</li>
+                <li style={style} onClick={this.onListItemClick.bind(this)}>{this.props.chat.name}</li>
+                <li style={style} onClick={this.onListItemClick.bind(this)}>{this.props.chat.message}</li>
             </ul>
         );
     }
@@ -76,6 +154,6 @@ const App = () => (
 );
 
 ReactDOM.render(<App />, document.getElementById="chats");
-
 ~~~
-
+li의 name, message를 클릭했을 때 onClick이벤트를 이용하여 state의 상태를 바꿔서 style을 바꾼다.
+이와 같이 이벤트 처리를 할 때 보통 state를 사용한다.
