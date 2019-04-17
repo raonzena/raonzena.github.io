@@ -1,0 +1,21 @@
+---
+published: true
+layout: post
+title:  "react - (2)"
+date:   2019-04-17
+author: raonzena 
+category: prototype
+tags:
+- react
+- props
+- state
+- life cycle
+comments: true
+---
+
+# react의 life cycle #
+
+![](https://raonzena.github.io/images/react_life_cycle.png)
+
+출처 : [react-lifecycle-methods-diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
