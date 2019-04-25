@@ -1,0 +1,142 @@
+---
+published: true
+layout: post
+title:  "비동기 함수와 promise"
+date:   2019-04-25
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- promise
+- asynchronous
+comments: true
+---
+
+# javascript가 비동기 처리를 한다? #
+- 자바스크립트는 싱글 쓰레드로 이루어져 있다. 비유를 하자면 일처리를 하는 사람이 한 명 이라는 뜻이다.  
+동기 처리란, 하나의 일이 끝나기 전에 다른 일을 하지 못하는 것을 말한다. 그럼 만약 자바스크립트가 동기 처리 방식으로 이루어져 있다면 어떻게 될까?
+- 예를 들어, 빨래를 하고 청소를 해야 한다고 생각해보자. 동기 처리는 빨래가 다 끝나기 전에는 청소를 할 수 없다.
+따라서 총 걸리는 시간이 (빨래를 하는시간 + 청소를 하는시간)이다. 
+- 하지만 비동기 처리는 하나의 일이 끝나기 전에 다른 일을 처리할 수 있는 것을 말한다. 비동기 처리는 빨래를 세탁기에 돌려놓고 빨래가 되는동안 청소를 할 수 있다. 따라서 총 걸리는 시간이 max(빨래를 하는시간, 청소를 하는시간)이다.
+- 이처럼 javascript는 효율적으로 일처리를 하기 위해 비동기 처리 방식으로 되어 있다.
+
+# 그럼 동기 처리 방식이 비효율적인건가요? #
+- 동기 처리 방식이 비효율적이라고 말하기는 애매하다... 위에서 예를 든 것은 어떤 일이 먼저 끝나든 상관없이 시간을 효율적으로 쓰기 위해 비동기 처리를 사용했다고 하면, 동기 처리 방식은 먼저 실행한 코드부터 결과값이 나오고 그 다음으로 넘어가기 때문에 순서대로 처리해야 하는 일에 적합하다.
+
+# 비동기 처리 방식의 문제점 #
+- ajax라는 비동기 통신 코드를 예시로 들면 다음과 같습니다.
+  ~~~javascript
+  function getData() {
+    var data;
+    $.get('https://myData.com/data/1', function(response) {
+      data = response;
+    });
+    return data;
+  }
+
+  console.log(getData);
+  ~~~
+- 여기서 $.get부분이 ajax통신을 하는 부분인데, https://myData.com 라는 주소로 data의 첫 번째 값을 요청(get)하는 코드이다. 정상적으로 데이터를 받았다면 response에 값이 담길 것이고 data에 할당되어 콘솔에 값이 찍힐 거라고 예상이 될 것이다. 
+- 하지만 결과를 보면 콘솔에 찍히는 내용은 `undefined`이다. 대체 왜 그럴까?
+- 위에서 잠깐 얘기했지만 동기 처리 방식은 순서대로 실행된다는 것이 장점이다. 하지만 비동기 처리 방식은 처리가 끝나는 순서가 정해져 있지 않다. 그래서 위와 같은 문제가 생기는 것이다.  
+- ajax통신은 비동기로 처리하게 되지만 그 아래 코드인 `return data;`는 동기처리 되기 때문에 ajax통신이 아직 끝나기 전에 실행이 되어 버린다.
+
+# 콜백 함수의 사용 #
+- 위와 같은 문제를 해결하기 위해 `콜백함수(callback function)`을 사용하기 시작했다.  
+  ~~~javascript
+  function getData(callback) {
+    $.get('https://myData.com/data/1', function(response) {
+      callback(response);
+    });
+  }
+  getData(function(data) {
+    console.log(data);
+  });
+  ~~~
+- 위 코드와 같이 콜백함수를 사용하면 비동기함수가 실행되고 난 후에 콜백함수를 실행하여 원하는 결과값을 얻을 수 있다.
+
+# 콜백 지옥(callback hell) #
+- 우리가 웹 서비를 만들다 콜백함수의 콜백함수를 만들고 또 콜백함수를 만들고 또... 다음 코드와 같은 콜백 지옥(callback hell)이 생길 수 있다.  
+  ~~~javascript
+  $.get(url, function(response) {
+    callback1(response, function(result1) {
+      callback2(response, function(result2) {
+        callback3(response, function(result3) {
+          ...
+        })
+      })
+    });
+  });
+  ~~~
+- 이를 해결하기  위해 다음과 같이 함수 선언을 하여 코드를 분리하였다.
+  ~~~javascript
+  $.get(url, function(response) {
+    callback1(response)
+  }
+  function callback1(response) {
+    callback2(response)
+  }
+  function callback2(response) {
+    callback3(response)
+  }
+  function callback3(response) {
+    ...
+  }
+  ~~~
+ - 위와 같이코드를 분리하여 해결할 수 있지만 promise라는 객체를 사용하여 구현할 수도 있다.
+
+# promise #
+- promise는 javascript의 비동기 처리에 사용되는 객체로, 기대한 값을 얻은 경우(resolved)와 얻지 못한 경우(rejected) 두 가지 정보를 얻을 수 있다.
+- 콜백 함수의 사용에서 보았던 예시코드에 promise를 적용하면 다음과 같다.
+  ~~~javascript
+  function getData() {
+    return new Promise(function(resolve, reject) {
+      $.get('https://myData.com/data/1', function(response) {
+        resolve(response);
+      });
+    })
+  }
+  getData().then(function(data) {
+    console.log(data)
+  });
+  ~~~
+
+# promise의 동작 방식 #
+- Promise는 비동기 함수로부터 동기적으로 반환되는 객체이다. Promise는 다음 3가지 상태 중 하나를 가진다.
+  - Pending: 아직 fulfilled 또는 rejected 상태가 아님(대기상태)
+  - Fulfilled: onFulfilled()가 호출된다 (ex) resolve() 호출)
+  - Rejected: onRejected()가 호출된다 (ex) reject() 호출)  
+
+![](https://mdn.mozillademos.org/files/8633/promises.png)
+
+## Pending(대기 상태) ##
+- new Promise() 메서드를 호출하면 Pending(대기) 상태가 된다.
+  ~~~javascript
+  new Promise();
+  ~~~
+- new Promise() 메서드를 호출할 때 콜백 함수의 인자로 resolve, reject을 사용할 수 있다.
+  ~~~javascript
+  new Promise(function (resolve, reject) {
+    // ...
+  });
+  ~~~
+
+## Fulfilled(이행 상태) ##
+- 다음과 같이 resolve를 실행하면 Fulfilled 상태가 된다고 말한다.
+  ~~~javascript
+  new Promise(function (resolve, reject) {
+    resolve();
+  });
+  ~~~
+- resolve함수를 호출한 리턴값을 then에서 받아 사용할 수 있다.
+
+
+## Rejected(거절 상태) ##
+- 다음과 같이 reject를 실행하면 Rejected 상태가 된다고 말한다.
+  ~~~javascript
+  new Promise(function (resolve, reject) {
+    reject();
+  });
+  ~~~
+- reject함수를 호출하여 리턴된 에러를 catch에서 받아 사용할 수 있다.
+- Fulfilled 또는 Rejected상태가 되면 settled 상태가 되었다고 말한다. 그리고 한번 settled 상태가 되고 나면, Promise는 다시 settled 될 수 없다. 즉, 한 번 resolve() 또는 reject()을 호출했으면 그 이후에 다시 resolve() 또는 reject()을 호출했을 때 아무런 효과가 없다. 
