@@ -54,6 +54,8 @@ Reduced Redundancy Storage의 약자로 일반 S3 객체에 비해서 데이터�
 ![](https://raonzena.github.io/images/s3_1.png)
 ![](https://raonzena.github.io/images/s3_2.png)
 ![](https://raonzena.github.io/images/s3_3.png)
+![](https://raonzena.github.io/images/s3_4.png)
+![](https://raonzena.github.io/images/s3_5.png)
 
 - 가상 호스팅 방식의 URL에서 버킷 이름은 URL에서 도메인 이름의 일부입니다. 예:  
   - http://bucket.s3.amazonaws.com 
