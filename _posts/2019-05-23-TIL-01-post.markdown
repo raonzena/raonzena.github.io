@@ -1,0 +1,27 @@
+---
+published: true
+layout: post
+title:  "20190523 TIL"
+date:   2019-05-23
+author: raonzena 
+category: TIL
+tags:
+- Deploy
+- AWS
+- S3
+- 
+comments: true
+---
+
+# 오늘 배운 것 #
+- Elastic IP(탄력적 IP주소)를 설정하면 EC2 인스턴스를 재시작해도 public endpoint가 바뀌지 않는다.
+- 코드 리뷰를 통해 리액트의 state에 대해서 다시 공부해야 겠다는 생각이 들었다. 리액트 컴포넌트의 클래스 내에서  state가 아닌 그냥 변수를 지정하여 쓰는 것은 리액트의 state와 랜더링 개념을 잘 모르고 사용하는 것이라는 이야기를 들었다.
+- 그리고 sequelize를 사용할 때 테이블 조인이 어려워서, 서브쿼리를 사용하는 방법을 몰라서 sequelize안에 또 sequelize를 쓰고 또 sequelize를 쓰고... 문제가 많다는 것을 느꼈다.
+
+
+# 공부하고 싶은 것 #
+- scottyjs : 배포를 간편하게 하기 위한 CLI Tool 
+- sequelize : ORM의 개념, sequelize의 개념
+- react 개념 : stephen grider 강의
+- redux : <https://egghead.io/courses/getting-started-with-redux>
+- Elastic IP : Elastic IP 개념, AWS에서의 설정
