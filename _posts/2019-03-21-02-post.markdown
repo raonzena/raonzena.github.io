@@ -1,0 +1,18 @@
+---
+published: true
+layout: post
+title:  "codestates pre_course 정리 (11) - Function Methods"
+date:   2019-03-21
+author: raonzena 
+category: javascript
+tags:
+- javascript
+- apply
+- call
+- bind
+comments: true
+---
+
+# Function Methods #
+
+##  ##
