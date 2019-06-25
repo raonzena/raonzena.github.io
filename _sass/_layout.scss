@@ -217,42 +217,48 @@
 
 
 .post-content {
+  font-size: $base-font-size*0.75;
   p {
-    font-size: $base-font-size*0.75;
     padding:$spacing-unit/5 0;
   } 
-  //margin-bottom: $spacing-unit;
   h1 { 
     font-size: 26px;
     line-height:1em;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    border-bottom:1px solid $grey-color-light;
     @include media-query($on-laptop){
       font-size: 22px;
     }
 
   }
   h2 {
-    font-size: 24px;
+    font-size: 23px;
     line-height:1em;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
     @include media-query($on-laptop) {
-      font-size: 20px;
+      font-size: 19px;
     }
   }
 
   h3 {
     font-size: 20px;
     line-height:1em;
-
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
     @include media-query($on-laptop) {
       font-size: 16px;
     }
   }
 
   h4 {
-    font-size: 16px;
+    font-size: 17px;
     line-height:1em;
-
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
     @include media-query($on-laptop) {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
 }
