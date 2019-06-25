@@ -3,16 +3,15 @@
 ---
 @charset "utf-8";
 @font-face {
-    font-family: 'ya-chae';
-    src: url('/fonts/yaRegular.ttf') format('truetype'),
-         url('/fonts/yaBold.ttf') format('truetype');
+    font-family: 'Handon3gyeopsal600g';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
+
 // Our variables
-$base-font-family: 'ya-chae';
+$base-font-family: 'Handon3gyeopsal600g';
 $base-font-size:   24px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6em;
