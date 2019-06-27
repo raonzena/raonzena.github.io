@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title:  "codestates pre_course 정리 (9) - this"
+title:  "javascript - this"
 date:   2019-03-19
 author: raonzena 
 category: javascript

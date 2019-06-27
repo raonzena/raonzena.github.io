@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title:  "codestates pre_course 정리 (6) - passing variables"
+title:  "javascript - passing variables"
 date:   2019-02-12
 author: raonzena 
 category: javascript

@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title:  "codestates pre_course 정리 (3)"
+title:  "javascript - String Methods"
 date:   2019-02-01
 author: raonzena 
 category: javascript

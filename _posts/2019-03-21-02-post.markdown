@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title:  "codestates pre_course 정리 (11) - Function Methods"
+title:  "Function Methods"
 date:   2019-03-21
 author: raonzena 
 category: javascript
@@ -13,6 +13,6 @@ tags:
 comments: true
 ---
 
-# Function Methods #
+# Function Methods
 
-##  ##
+## 
