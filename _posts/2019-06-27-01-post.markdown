@@ -4,14 +4,10 @@ layout: post
 title:  "나는 개발자다"
 date:   2019-06-27
 author: raonzena 
-category: Web Server
+category: my
 tags:
-- web server
-- web
-- apache
-- nginx
-- app engine
-- s3
+- bootcamp
+- codestates
 comments: true
 ---
 
