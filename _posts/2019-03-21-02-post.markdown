@@ -15,4 +15,50 @@ comments: true
 
 # Function Methods
 
-## 
+## apply
+apply 메소드는 인자로 this값과 배열을 제공하여 함수를 호출한다.  
+첫 번째 인자가 this값으로 할당되며, 두 번째 인자에 호출하는 함수의 인자가 될 배열을 할당한다.  
+~~~javascript
+var numbers = [5, 6, 2, 3, 7];
+
+var max = Math.max.apply(null, numbers);
+
+console.log(max);
+// expected output: 7
+
+var min = Math.min.apply(null, numbers);
+
+console.log(min);
+// expected output: 2
+~~~  
+  
+## call
+call 메소드는 인자로 this값과 인자들을 제공하여 함수를 호출한다.
+첫 번째 인자가 this값으로 할당되며, 두 번째 인자부터 호출되는 함수의 인자로 할당된다.
+~~~javascript
+var func = function(name, car) {
+  console.log(name, " has ", car);
+}
+
+func.call(null, "bob", "banz");
+// expected output: bob has banz
+~~~  
+  
+## bind
+bind 메소드는 인자로 this값을 받아서 함수에 바인딩한다.
+~~~javascript
+var module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+}
+
+var unboundGetX = module.getX;
+console.log(unboundGetX()); // The function gets invoked at the global scope
+// expected output: undefined
+
+var boundGetX = unboundGetX.bind(module);
+console.log(boundGetX());
+// expected output: 42
+~~~  
