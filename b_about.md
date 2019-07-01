@@ -10,9 +10,10 @@ I am interested in the web and I am studying ReactJS and NodeJS.
 I'm working with others and trying to be a constantly growing developer.  
   
 ☎️ Phone  +82-10-5838-4388  
-✉️ Email  [seven1004z@gmail.com](mailto:seven1004z@gmail.com)  
+✉️ Email  [sulhwa.developer@gmail.com](mailto:sulhwa.developer@gmail.com)  
 📚 Github [https://github.com/raonzena](https://github.com/raonzena)   
 📄 Resume [https://bit.ly/2xcpfq2](https://bit.ly/2xcpfq2)
+📄 TIL [https://bit.ly/2J1xNpe](https://bit.ly/2J1xNpe)
 
 
 
