@@ -2,7 +2,7 @@
 published: true
 layout: post
 title:  "Styled Component"
-date:   2019-07-06
+date:   2019-07-14
 author: raonzena 
 category: React
 tags:
