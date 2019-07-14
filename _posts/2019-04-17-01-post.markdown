@@ -4,7 +4,7 @@ layout: post
 title:  "react - (2)"
 date:   2019-04-17
 author: raonzena 
-category: prototype
+category: React
 tags:
 - react
 - props
@@ -16,6 +16,15 @@ comments: true
 # react의 life cycle #
 
 ![](https://raonzena.github.io/images/react_life_cycle.png)
+
+## componentDidMount
+컴포넌트가 마운트 된 후 한 번 실행된다. componentDidMount에서는 rendering이 이루어진 후 DOM 구성에 필요한 요소들을 초기화한다.
+
+## componentDidUpdate
+컴포넌트가 갱신된 후에 실행된다.
+
+## componentWillUnmount
+컴포넌트를 DOM에서 제거하기 전에 실행되며, 구독한 이벤트를 제거하거나 다른 정리 작업을 수행할 수 있다.
 
 출처 : [react-lifecycle-methods-diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 

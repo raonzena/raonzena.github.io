@@ -4,7 +4,7 @@ layout: post
 title:  "react - (1)"
 date:   2019-04-15
 author: raonzena 
-category: prototype
+category: React
 tags:
 - react
 - props
