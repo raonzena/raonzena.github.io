@@ -4,11 +4,12 @@ layout: post
 title:  "AWS - S3"
 date:   2019-05-02
 author: raonzena 
-category: javascript
+category: AWS
 tags:
 - Deploy
 - AWS
 - S3
+- cloud service
 comments: true
 ---
 
