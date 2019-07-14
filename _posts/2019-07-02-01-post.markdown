@@ -4,7 +4,7 @@ layout: post
 title:  "PropTypes"
 date:   2019-07-02
 author: raonzena 
-category: my
+category: React
 tags:
 - react
 - PropTypes
