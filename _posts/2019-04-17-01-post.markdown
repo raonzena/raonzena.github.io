@@ -18,13 +18,25 @@ comments: true
 ![](https://raonzena.github.io/images/react_life_cycle.png)
 
 ## componentDidMount
-컴포넌트가 마운트 된 후 한 번 실행된다. componentDidMount에서는 rendering이 이루어진 후 DOM 구성에 필요한 요소들을 초기화한다.
+컴포넌트가 마운트 된 후 한 번 실행된다. componentDidMount에서는 rendering이 이루어진 후 DOM 구성에 필요한 요소들을 초기화한다.  
+
+~~~javascript
+componentDidMount()
+~~~
 
 ## componentDidUpdate
-컴포넌트가 갱신된 후에 실행된다.
+컴포넌트가 갱신된 후에 실행된다. 갱신 이전의 props, state와 이후의 props, state를 비교할 수 있다.  
+
+~~~javascript
+componentDidUpdate(prevProps, prevState, snapshot)
+~~~
 
 ## componentWillUnmount
-컴포넌트를 DOM에서 제거하기 전에 실행되며, 구독한 이벤트를 제거하거나 다른 정리 작업을 수행할 수 있다.
+컴포넌트를 DOM에서 제거하기 전에 실행되며, 구독한 이벤트를 제거하거나 다른 정리 작업을 수행할 수 있다.  
+
+~~~javascript
+componentWillUnmount()
+~~~
 
 출처 : [react-lifecycle-methods-diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
