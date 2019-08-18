@@ -1,0 +1,64 @@
+---
+published: true
+layout: post
+title:  "Redux"
+date:   2019-08-18
+author: raonzena 
+category: Redux
+tags:
+- redux
+- react
+comments: true
+---
+# Redux Motivation
+JavaScript SPA에 대한 요구 사항이 점점 복잡해지면서 코드는 많은 상태를 관리해야 한다. 이 상태에는 서버 응답 및 캐시 된 데이터뿐만 아니라 아직 서버에 유지되지 않은 로컬로 작성된 데이터가 포함될 수 있다.  
+게다가 이 많은 상태들의 상태가 변하는 것을 관리하는 것은 매우 어렵다. model이 다른 model을 업데이트 할 수 있는 경우 view는 model을 업데이트하여 다른 model을 업데이트하면 또다른 view가 업데이트 될 수 있다. 그러면 어떤 시점에서 더 이상 언제, 왜, 어떻게 상태에 대한 제어권을 잃어 앱에서 어떤 일이 발생하는지 이해하지 못하게 된다. 시스템이 불투명하고 결정적이지 않은 경우 버그를 재현하거나 새로운 기능을 추가하기가 어렵다.  
+따라서 상태를 효율적으로 관리하고자 나온 것이 Redux이다.
+
+# Core Concept
+## Action
+스토어의 데이터를 변경할 때 액션을 사용한다. 모든 액션은 다음과 같이 하나의 객체로 이루어져 있으며 type 속성을 갖는다.  
+~~~javascript
+{
+  type: 'ADD_TODO'
+}
+~~~
+  
+## Action Creator
+스토어를 변경하려면 모든 리듀서에 액션을 전달해야 한다. 리듀서는 액션의 type에 따라 상태를 변경한다. 따라서 항상 액션의 type을 알아야한다. 하지만 액션 생성자를 이용하면 액션의 type을 몰라도 액션을 사용할 수 있다.  
+~~~javascript
+function addTodo(data) {
+  return {
+    type: "ADD_TODO",
+    data: data
+  };
+}
+
+// 화살표 함수로도 만들 수 있다.
+const addTodo = data => ({ 
+  type: "ADD_TODO",
+  data: data
+});
+~~~  
+  
+## Reducer
+리듀서는 액션이 스토어에 전달될 때마다 실행되는 함수이다. 리듀서는 인자로 state, action을 받는다. state는 현재의 상태, action은 상태를 변화시키는 action이다. 이를 통해 상태를 변화시킨다.  
+~~~javascript
+const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return state.concat([{ text: action.text, completed: false }])
+    case 'TOGGLE_TODO':
+      return state.map((todo, index) =>
+        action.index === index
+          ? { text: todo.text, completed: !todo.completed }
+          : todo
+      )
+    default:
+      return state
+  }
+}
+~~~  
+  
+## Store
+모든 데이터를 저장하고, 이 데이터를 조작할 수 있는 메서드를 제공한다. 스토어를 생성할 때는 createStore() 메서드를 이용한다.  
